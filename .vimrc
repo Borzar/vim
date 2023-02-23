@@ -106,6 +106,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'santiagovrancovich/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 
 call plug#end()
 
@@ -133,9 +134,12 @@ function! CheckBackspace() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" ------------------------End-Coc-config-------------------------------
+" ------------------------End-Coc-config--------------------------------
+
+" ------------------------General-config--------------------------------
 "
 let g:molokai_original = 1
+colorscheme molokai 
 
 "Quit nerdtree
 "let NERDTreeQuitOnOpen=1
@@ -162,7 +166,7 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-definition)
 
-" VIMSCRIPT -------------------------------------------------------------- 
+" ------------------------Vimscript------------------------------------
 
 " This will enable code folding.
 " Use the marker method of folding.
@@ -174,7 +178,7 @@ augroup END
 
 " More Vimscripts code goes here.
 
-" STATUS LINE ------------------------------------------------------------ 
+" -----------------------Status-Line-config----------------------------
 
 " Clear status line when vimrc is reloaded.
 set statusline=
