@@ -107,6 +107,7 @@ Plug 'santiagovrancovich/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
+Plug 'mhinz/vim-signify'
 
 call plug#end()
 
