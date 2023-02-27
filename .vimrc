@@ -119,6 +119,7 @@ call plug#end()
 " no select by `"suggest.noselect": true` in your configuration file
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config
+"
 inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1) :
       \ CheckBackspace() ? "\<Tab>" :
@@ -135,16 +136,43 @@ function! CheckBackspace() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+autocmd CursorHold * silent call CocActionAsync('highlight')
+hi link CocFloating Normal
+
+autocmd ColorScheme * call Highlight()
+
+function! Highlight() abort
+  hi SignifySignAdd    ctermfg=green  guifg=#00ff00 ctermbg=NONE guibg=NONE
+  hi SignifySignDelete ctermfg=red    guifg=#ff0000 ctermbg=NONE guibg=NONE
+  hi SignifySignChange ctermfg=yellow guifg=#ffff00 ctermbg=NONE guibg=NONE
+  hi SignColumn ctermbg=NONE
+  hi Conceal ctermfg=239 guifg=#504945 
+  hi CocSearch ctermfg=12 guifg=#18A3FF
+  hi CocErrorHighlight ctermfg=Red  guifg=#ff0000
+  hi CocErrorSign ctermfg=Red guifg=#ff0000 
+  hi CocWarningSign ctermfg=Brown guifg=#ff922b
+  hi CocInfoSign ctermfg=Yellow guifg=#fab005
+  hi CocHintSign ctermfg=White guifg=#ffffff guibg=NONE
+  hi default link CocErrorFloat CocErrorSign 
+  hi default link CocWarningFloat CocWarningSign 
+  hi default link CocInfoFloat CocInfoSign 
+  hi default link CocHintFloat CocHintSign 
+  hi default link CocHoverRange Search 
+  hi default link CocCursorRange Search 
+endfunction
+
+let g:molokai_original = 1
+autocmd vimenter * ++nested colorscheme molokai 
+
+autocmd ColorScheme * hi CocMenuSel ctermbg=237 guibg=#13354A
+
+set termguicolors
+
+autocmd FileType json syntax match Comment +\/\/.\+$+
+
 " ------------------------End-Coc-config--------------------------------
 
 " ------------------------General-config--------------------------------
-"
-let g:molokai_original = 1
-colorscheme molokai 
-
-highlight SignifySignAdd    ctermfg=green  guifg=#00ff00 cterm=NONE gui=NONE
-highlight SignifySignDelete ctermfg=red    guifg=#ff0000 cterm=NONE gui=NONE
-highlight SignifySignChange ctermfg=yellow guifg=#ffff00 cterm=NONE gui=NONE
 
 "Quit nerdtree
 "let NERDTreeQuitOnOpen=1
