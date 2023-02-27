@@ -106,7 +106,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'santiagovrancovich/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'maxmellon/vim-jsx-pretty'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
+"Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 Plug 'mhinz/vim-signify'
 
 call plug#end()
@@ -170,9 +170,16 @@ set termguicolors
 
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
+" prettier
+
+command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
+
+
 " ------------------------End-Coc-config--------------------------------
 
 " ------------------------General-config--------------------------------
+
+" signify
 
 "Quit nerdtree
 "let NERDTreeQuitOnOpen=1
