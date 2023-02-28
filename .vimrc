@@ -92,6 +92,8 @@ set updatetime=300
 " diagnostics appear/become resolved
 set signcolumn=yes
 
+set backspace=indent,eol,start
+
 " PLUGINS ---------------------------------------------------------------- 
 
 call plug#begin('~/.vim/plugged')
@@ -162,12 +164,11 @@ function! Highlight() abort
   hi default link CocCursorRange Search 
 endfunction
 
-let g:molokai_original = 1
 autocmd vimenter * ++nested colorscheme focusedpanic
 
 autocmd ColorScheme * hi CocMenuSel ctermbg=237 guibg=#13354A
 
-"set termguicolors
+set termguicolors
 
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
