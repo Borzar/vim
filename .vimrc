@@ -108,6 +108,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'maxmellon/vim-jsx-pretty'
 "Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 Plug 'mhinz/vim-signify'
+Plug 'tjammer/focusedpanic.vim'
 
 call plug#end()
 
@@ -162,25 +163,20 @@ function! Highlight() abort
 endfunction
 
 let g:molokai_original = 1
-autocmd vimenter * ++nested colorscheme molokai 
+autocmd vimenter * ++nested colorscheme focusedpanic
 
 autocmd ColorScheme * hi CocMenuSel ctermbg=237 guibg=#13354A
 
-set termguicolors
+"set termguicolors
 
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
 " prettier
-
 command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
-
 
 " ------------------------End-Coc-config--------------------------------
 
 " ------------------------General-config--------------------------------
-
-" signify
-
 "Quit nerdtree
 "let NERDTreeQuitOnOpen=1
 
