@@ -1,3 +1,4 @@
+set hidden
 " Disable  creating swap files
 set noswapfile
 
@@ -82,6 +83,7 @@ set background=dark
 set encoding=utf-8
 " Some servers have issues with backup files, see #649
 set nobackup
+
 set nowritebackup
 
 " Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
@@ -92,7 +94,7 @@ set updatetime=300
 " diagnostics appear/become resolved
 set signcolumn=yes
 
-set backspace=indent,eol,start
+"set backspace=indent,eol,start
 
 " PLUGINS ---------------------------------------------------------------- 
 
@@ -168,7 +170,7 @@ autocmd vimenter * ++nested colorscheme focusedpanic
 
 autocmd ColorScheme * hi CocMenuSel ctermbg=237 guibg=#13354A
 
-set termguicolors
+"set termguicolors
 
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
